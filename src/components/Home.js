@@ -2,7 +2,7 @@ import React from "react";
 
 export const Home = () => (
     <>
-        <h2>Nashville Kennels</h2>
+        <h2>Thorns & Roses</h2>
         <small>Loving care when you're not there.</small>
 
         <address>

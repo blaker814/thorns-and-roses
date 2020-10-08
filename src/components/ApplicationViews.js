@@ -1,10 +1,10 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
-import { LocationCard } from "./location/LocationCard"
-import { AnimalCard } from "./animal/AnimalCard"
-import { CustomerCard } from "./customer/CustomerCard"
-import { EmployeeCard } from "./employee/EmployeeCard"
+import { NurseryProvider } from "./nursery/NurseryProvider"
+import { NurseryList } from "./nursery/NurseryList"
+import { FlowerProvider } from "./flower/FlowerProvider"
+import { DistributorProvider } from "./distributor/DistributorProvider"
 
 export const ApplicationViews = (props) => {
     return (
@@ -13,15 +13,21 @@ export const ApplicationViews = (props) => {
                 <Home />
             </Route>
 
-            <Route path="/nurseries">
-                <></>
-            </Route>
+            <NurseryProvider>
+                <FlowerProvider>
+                    <DistributorProvider>
+                        <Route exact path="/nurseries">
+                            <NurseryList />
+                        </Route>
+                    </DistributorProvider>
+                </FlowerProvider>
+            </NurseryProvider>
             
-            <Route path="/distributors">
+            <Route exact path="/distributors">
                 <></>
             </Route>
 
-            <Route path="/retailers">
+            <Route exact path="/retailers">
                 <></>
             </Route>
         </>
